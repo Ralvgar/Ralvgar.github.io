@@ -12,7 +12,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-flow: column wrap;
-  min-height: 600px;
+  min-height: 400px;
 }
 
 .porcentaje {
