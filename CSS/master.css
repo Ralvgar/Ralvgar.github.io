@@ -6,7 +6,7 @@ body {
   margin: 0;
 }
 
-.contenedor {
+.container {
   display: flex;
   height: 100vh;
   justify-content: center;
@@ -15,16 +15,16 @@ body {
   min-height: 400px;
 }
 
-.porcentaje {
+.percentage {
   margin-bottom: -50px;
   font-size: 3em;
 }
 
-.mensaje {
+.message {
   font-size: 1.7em;
 }
 
-.barra-total {
+.total-bar {
 
   height: 40px;
   width: 25%;
@@ -34,7 +34,7 @@ body {
 
 }
 
-.barra-carga {
+.loading-bar {
   opacity: 0;
   height: 40px;
   width: 0%;

@@ -1,18 +1,19 @@
 function start(){
-  $("#button").css("visibility", "hidden");
-     var duration = 5000; // it should finish in 5 seconds !
-     var percent = duration / 100; // 1 percent of duration
-     var i = 0 ;
-     var interval = setInterval(function(){
-        i++;
-        $("#box").css("width", i + "%");
-        $("#box").css("opacity", 1);
-        $("#prc").text(i + "%");
-        $("#msg").text("Loading...");
-        if(i>=100){
-            clearInterval(interval);
-            $("#msg").text("Done!");
-            $("#button").css("visibility", "visible");
-        }
-    }, percent);
+    document.getElementById('button').style.visibility = "hidden";
+
+    var duration = 5000; // it should finish in 5 seconds
+    var percent = duration / 100; // 1 percent of duration
+    var i = 0 ;
+    var interval = setInterval(function(){
+      i++;
+      document.getElementById('box').style.width = i + "%";
+      document.getElementById('box').style.opacity = 1;
+      document.getElementById('prc').textContent = i + "%";
+      document.getElementById('msg').textContent = "Loading...";
+      if(i>=100){
+          clearInterval(interval);
+          document.getElementById('msg').textContent = "Done!";
+          document.getElementById('button').style.visibility = "visible";
+      }
+  }, percent);
 }
