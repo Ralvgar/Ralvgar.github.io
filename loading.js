@@ -1,5 +1,5 @@
 function start(){
-    document.getElementById('button').style.visibility = "hidden";
+    document.getElementById('button').setAttribute("disabled", "");
 
     var duration = 5000; // it should finish in 5 seconds
     var percent = duration / 100; // 1 percent of duration
@@ -13,7 +13,7 @@ function start(){
       if(i>=100){
           clearInterval(interval);
           document.getElementById('msg').textContent = "Done!";
-          document.getElementById('button').style.visibility = "visible";
+          document.getElementById('button').removeAttribute("disabled", "");
       }
   }, percent);
 }
