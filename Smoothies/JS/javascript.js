@@ -51,13 +51,14 @@ const shuffle = () => {
     };
   }
 
-  // In this part it returns the selection list where the fruit packs are.
+  // The DOM is modified to show the selection of fruits on the screen
+
   let fruitPack = "";
   for (let i = 0; i < selection.length; i++){
     if (i % 2 === 0){
-    fruitPack = document.getElementById('prueba-2');
+    fruitPack = document.getElementById('column-2');
   }else {
-    fruitPack = document.getElementById('prueba-1');
+    fruitPack = document.getElementById('column-1');
   }
     for (let x= 0; x < selection[i].length; x++){
     const entry = document.createElement('li');
@@ -72,10 +73,10 @@ const shuffle = () => {
     newDiv.setAttribute("class", "col-6 text-center mb-4 mt-5");
     try{
     fruitPack.appendChild(newDiv);
-  }catch(error){
+    }catch(error){
+    }
+
+  // In this part it returns the selection list where the fruit packs are.
   }
-  }
+  return selection;
 };
-
-
-shuffle();
