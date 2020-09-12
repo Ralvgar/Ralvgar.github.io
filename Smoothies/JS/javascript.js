@@ -57,24 +57,33 @@ const shuffle = () => {
   for (let i = 0; i < selection.length; i++){
     if (i % 2 === 0){
     fruitPack = document.getElementById('column-2');
-  }else {
+    }else {
     fruitPack = document.getElementById('column-1');
-  }
+    }
     for (let x= 0; x < selection[i].length; x++){
-    const entry = document.createElement('li');
-    entry.setAttribute("class", "list-inline-item h1 mx-0")
-    entry.appendChild(document.createTextNode(selection[i][x]));
+      const entry = document.createElement('li');
+      entry.setAttribute("class", "list-inline-item h1 mx-0")
+      entry.appendChild(document.createTextNode(selection[i][x]));
+      try{
+          fruitPack.appendChild(entry);
+      }catch(error){
+      }
+    }
+
+    const newLi = document.createElement('li');
+    newLi.appendChild(document.createTextNode("⭐️⭐️⭐️⭐️⭐️"));
+    newLi.setAttribute("class", "h1 ml-5 list-inline-item ");
     try{
-    fruitPack.appendChild(entry);
+      fruitPack.appendChild(newLi);
     }catch(error){
     }
-    }
-    const newDiv = document.createElement('div');
-    newDiv.setAttribute("class", "col-6 text-center mb-4 mt-5");
+    const newUl = document.createElement('ul');
+    newUl.setAttribute("class", "my-5");
     try{
-    fruitPack.appendChild(newDiv);
+      fruitPack.appendChild(newUl);
     }catch(error){
     }
+
 
   // In this part it returns the selection list where the fruit packs are.
   }
