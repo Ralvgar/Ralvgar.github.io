@@ -145,6 +145,6 @@ const getValue = (value,number) => {
 const objectValue = () => {
   const objPackValues = {};
   selection.forEach((key, value) => objPackValues[key] = listValues[value]);
-  console.log(objectValue);
+  console.log(objPackValues);
   return objectValue;
 };
