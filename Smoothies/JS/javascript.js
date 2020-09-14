@@ -58,14 +58,12 @@ const shuffle = () => {
 };
 
                                 // Put each item into the DOM
-
 const toDom = (selection) => {
   for (select in selection) {
     // Create an unordered list
     const list = document.createElement('ul');
 
-    // Create a list item for each select
-    // and append it to the list
+    // Create a list item for each select and append it to the list.
     selection[select].forEach(elem => {
     	const li = document.createElement('li');
     	li.textContent = elem;
@@ -73,25 +71,8 @@ const toDom = (selection) => {
     	list.appendChild(li);
     });
 
-    // Create a list item for each star
-    // and append it to the list
-    for (let i = 0; i < 5; i++){
-      const li = document.createElement('li');
-    	li.textContent = "⭐️";
-      if (i === 0){
-        li.setAttribute("class", `h1 list-inline-item ml-3 mr-0 star star-checked`);
-        li.setAttribute("style", "cursor: pointer");
-        li.setAttribute("data-value", i + 1);
-        li.setAttribute("onclick", "isChecked(this)");
-      }else{
-        li.setAttribute("class", `h1 mx-0 list-inline-item star star--unchecked`);
-        li.setAttribute("style", "cursor: pointer");
-        li.setAttribute("data-value", i + 1);
-        li.setAttribute("onclick", "isChecked(this)");
-      }
-    	list.appendChild(li);
-    }
-
+    // Call list fuction (it was created to try to reset the stars into the DOM but not completed yet.)
+    createStars(list);
     // Inject into the DOM
     if (select % 2 === 0){
     const app = document.querySelector('#column-1');
@@ -107,11 +88,31 @@ const toDom = (selection) => {
   }
 };
 
+// Create a list item for each star and append it to the list.
+const createStars = (list) => {
+  for (let i = 0; i < 5; i++){
+    const li = document.createElement('li');
+    li.textContent = "⭐️";
+    if (i === 0){
+      li.setAttribute("class", `h1 list-inline-item ml-3 mr-0 star star-checked`);
+      li.setAttribute("style", "cursor: pointer");
+      li.setAttribute("data-value", i + 1);
+      li.setAttribute("onclick", "isChecked(this)");
+      list.appendChild(li);
+    }else{
+      li.setAttribute("class", `h1 mx-0 list-inline-item star star--unchecked`);
+      li.setAttribute("style", "cursor: pointer");
+      li.setAttribute("data-value", i + 1);
+      li.setAttribute("onclick", "isChecked(this)");
+      list.appendChild(li);
+    }
+  }
+  return list;
+}
 
                               // See if the stars are checked
 
 const isChecked = (element) => {
-
   const items = element.parentElement;
   const classList = element.className.split(" ");
   const value = element.getAttribute("data-value");
