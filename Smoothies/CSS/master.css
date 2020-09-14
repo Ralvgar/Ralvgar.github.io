@@ -1,3 +1,4 @@
+
 .col--orange{
   background-color: #ff9f80;
 }
@@ -17,4 +18,10 @@
 
 .star--unchecked{
   opacity: .3;
+}
+
+@media only screen and (max-width: 780px){
+  .list-inline-item{
+    font-size: 2.1rem;
+  };
 }

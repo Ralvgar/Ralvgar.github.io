@@ -75,7 +75,7 @@ const toDom = (selection) => {
       const li = document.createElement('li');
     	li.textContent = "⭐️";
       if (i === 0){
-        li.setAttribute("class", `h1 mx-0 list-inline-item ml-5 star star-checked`);
+        li.setAttribute("class", `h1 list-inline-item ml-3 mr-0 star star-checked`);
         li.setAttribute("style", "cursor: pointer");
         li.setAttribute("data-value", i + 1);
         li.setAttribute("onclick", "isChecked(this)");
@@ -136,6 +136,7 @@ const isChecked = (element) => {
 // Modifies the listValues with the information taken from the DOM;
 const getValue = (value,number) => {
   listValues[number] = parseInt(value);
+  console.log(listValues);
 };
 
 
@@ -144,5 +145,6 @@ const getValue = (value,number) => {
 const objectValue = () => {
   const objPackValues = {};
   selection.forEach((key, value) => objPackValues[key] = listValues[value]);
+  console.log(objectValue);
   return objectValue;
 };
