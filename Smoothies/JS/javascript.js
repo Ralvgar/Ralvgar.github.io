@@ -3,12 +3,16 @@
 const numberOfSmoothies = 20;
 const numberOfFruitsInPack = 4;
 // lists to get data values
-const listValues = [];
+let listValues = [];
 const selection = [];
 // creates a values list that depends on the number of smoothies.
-for (let i = 0; i < numberOfSmoothies; i++){
-  listValues.push(1);
-};
+const createListValues = () => {
+  for (let i = 0; i < numberOfSmoothies; i++){
+    listValues.push(1);
+  };
+}
+
+createListValues();
 
                             // Creates different fruit packs.
 
@@ -148,3 +152,9 @@ const objectValue = () => {
   console.log(objPackValues);
   return objectValue;
 };
+
+// Reset the listValues.
+const reset = () => {
+  listValues = [];
+  createListValues();
+}
