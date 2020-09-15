@@ -94,13 +94,13 @@ const createStars = (list) => {
     const li = document.createElement('li');
     li.textContent = "⭐️";
     if (i === 0){
-      li.setAttribute("class", `h1 list-inline-item ml-3 mr-0 star star-checked`);
+      li.setAttribute("class", `h1 list-inline-item ml-3 mr-0 star star--checked`);
       li.setAttribute("style", "cursor: pointer");
       li.setAttribute("data-value", i + 1);
       li.setAttribute("onclick", "isChecked(this)");
       list.appendChild(li);
     }else{
-      li.setAttribute("class", `h1 mx-0 list-inline-item star star--unchecked`);
+      li.setAttribute("class", `h1 list-inline-item mx-0 star star--unchecked`);
       li.setAttribute("style", "cursor: pointer");
       li.setAttribute("data-value", i + 1);
       li.setAttribute("onclick", "isChecked(this)");
@@ -155,7 +155,21 @@ const objectValue = () => {
 };
 
 // Reset the listValues.
+
+const resetStars = () => {
+  const stars = document.getElementsByClassName('star--checked');
+  for (let i = 0; i < stars.length; i++){
+    const starValue = parseInt(stars[i].getAttribute("data-value"));
+    if (starValue !== 1){
+      const starClass = stars[i].className.split(" ");
+      starClass[starClass.indexOf("star--checked")] = "star--unchecked";
+      stars[i].className = starClass.join(" ");
+    }
+  }
+};
+
 const reset = () => {
   listValues = [];
   createListValues();
+  resetStars();
 }
